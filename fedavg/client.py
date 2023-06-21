@@ -34,7 +34,7 @@ class Client(object):
     
  
     
-    def mixup_data(x, y, klam, use_cuda=True):
+    def mixup_data(self, x, y, klam, use_cuda=True):
         device = torch.device("cuda" if use_cuda else "cpu")
         '''Returns mixed inputs, lists of targets, and lambdas'''
         lams = np.random.normal(0, 1, size=(x.size()[0], klam))
@@ -78,7 +78,7 @@ class Client(object):
         return (mix_inputs, mix_targets, lams)
 
         
-    def train(net, optimizer, inputs_all, mix_targets_all, lams, klam):
+    def train(self, net, optimizer, inputs_all, mix_targets_all, lams, klam):
         use_cuda = torch.cuda.is_available()
         device = torch.device("cuda" if use_cuda else "cpu")
         
@@ -117,7 +117,7 @@ class Client(object):
         return (train_loss / batch_idx, 100. * correct / total)
 
 
-    def test(net, optimizer, testloader, criterion):
+    def test(self, net, optimizer, testloader, criterion):
         use_cuda = torch.cuda.is_available()
         device = torch.device("cuda" if use_cuda else "cpu")
        
