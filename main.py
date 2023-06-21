@@ -11,7 +11,6 @@ from fedavg.models import resnet20
 from utils import get_data
 import copy
 import wandb
-from fedavg.models import ReTrainModel
 
 parser = argparse.ArgumentParser(
     description='PyTorch InstaHide Training, CIFAR-100')
