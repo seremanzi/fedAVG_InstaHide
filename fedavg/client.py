@@ -168,7 +168,7 @@ class Client(object):
         for e in range(self.conf["local_epochs"]):
             self.local_model.train()
         
-            mix_inputs_all, mix_targets_all, lams = self.generate_sample(self.train_loader, klam)
+            mix_inputs_all, mix_targets_all, lams = self.generate_sample(self.train_loader.dataset, klam)
             
             train_loss, _ = self.train(self.local_model, optimizer, mix_inputs_all, mix_targets_all, lams, klam)
             test_loss, test_acc1, = self.test(self.local_model, optimizer, self.val_loader, criterion)
