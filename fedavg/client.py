@@ -88,7 +88,7 @@ class Client(object):
 
 
         seq = random.sample(range(len(inputs_all)), len(inputs_all))
-        bl = list(chunks(seq, ))
+        bl = list(chunks(seq, conf["batch_size"]))
 
         for batch_idx in range(len(bl)):
             b = bl[batch_idx]
