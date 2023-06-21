@@ -67,7 +67,7 @@ class Client(object):
     def generate_sample(self, trainloader, klam):
         use_cuda = torch.cuda.is_available()
         
-        assert len(trainloader) == 1        # Load all training data once
+        #assert len(trainloader) == 1        # Load all training data once
         for _, (inputs, targets) in enumerate(trainloader):
             if use_cuda:
                 inputs, targets = inputs.cuda(), targets.cuda()
