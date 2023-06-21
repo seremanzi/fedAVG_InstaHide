@@ -99,7 +99,8 @@ class Client(object):
             for ik in range(klam):
                 mix_targets.append(
                     torch.stack(
-                        [mix_targets_all[ik][ib].long().to(device) for ib in b]))
+                        [mix_targets_all[ik][ib].long().item() for ib in b]).to(device))
+                        #[mix_targets_all[ik][ib].long().to(device) for ib in b]))
             targets_var = [Variable(mix_targets[ik]) for ik in range(klam)]
 
             inputs = Variable(inputs)
