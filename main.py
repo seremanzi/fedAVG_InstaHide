@@ -24,7 +24,7 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
 
-    wandb.init(project="", entity="samaml", group="fedavg_instahide", name="fedavg_ih")
+    #wandb.init(project="", entity="samaml", group="fedavg_instahide", name="fedavg_ih")
 
     train_datasets, val_datasets, test_dataset = get_data()
 
@@ -77,7 +77,7 @@ if __name__ == '__main__':
         print("Epoch %d, global_acc: %f, global_loss: %f\n" % (e, acc, loss))
 
         # Save test accuracy to wandb
-        wandb.log({"Test Accuracy": acc})
+        #wandb.log({"Test Accuracy": acc})
 
         # Save the best model
         if acc >= max_acc:
