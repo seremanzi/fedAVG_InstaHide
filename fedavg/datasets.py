@@ -54,6 +54,28 @@ class MyImageDataset(Dataset):
 
         return data, label
 
+class VRDataset(Dataset):
+    def __init__(self, data, label):
+        """
+        :param dataset: 数据， DataFrame
+        :param file_col:  文件名称列
+        :param label_col:  标签列
+        """
+        self.data = data
+
+        self.label = label
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, index):
+
+        data = torch.tensor(self.data[index])
+        label = torch.tensor(self.label[index])
+
+        return data, label    
+    
+
 def get_dataset(conf, data):
     """
     :param conf: 配置
