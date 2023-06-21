@@ -1,7 +1,7 @@
 import torch
 from fedavg.datasets import get_dataset, VRDataset
 import numpy as np
-from sklearn.metrics import roc_auc_score
+#from sklearn.metrics import roc_auc_score
 
 class Server(object):
 
